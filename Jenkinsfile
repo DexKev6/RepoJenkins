@@ -4,7 +4,7 @@ pipeline {
         
         stage('SonarQube analysis') {
             steps {
-                withSonarQubeEnv('SonarQubePruebas') {
+                withSonarQubeEnv('sonarqube') {
                     bat "mvn clean verify sonar:sonar"
                 }
             }
@@ -20,11 +20,11 @@ pipeline {
     }
     post{
             success{
-                bat "curl http://PepitoPerez:MamaGu3bo@localhost:8080/job/Tareas3dediciembre/job/DesplegarProduccion/build?token=963852"
+                bat "curl http://Kevin:123456@localhost:8080/job/Final/job/Desplegar_a_produccion/build?token=1234"
                 bat "echo Tarea Desplegar en servidor de produccion Iniciada correctamente"
             }
             failure{
-                bat "curl http://PepitoPerez:MamaGu3bo@localhost:8080/job/Tareas3dediciembre/job/Notificar/build?token=789456"
+                bat "curl http://Kevin:123456@localhost:8080/job/Final/job/Notificar/build?token=4321"
                 bat "echo Tarea notificar al correo Iniciada correctamente"
             }
         }
