@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages {
         
-        stage('sonarqube analysis') {
+        stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
                     bat "mvn clean verify sonar:sonar"
