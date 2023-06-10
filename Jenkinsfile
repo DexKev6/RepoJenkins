@@ -20,6 +20,7 @@ pipeline {
     }
     post{
             success{
+                bat "curl http://Kevin:123456@localhost:8080/job/Final/job/Desplegar_a_pruebas/build?token=456"
                 bat "curl http://Kevin:123456@localhost:8080/job/Final/job/Desplegar_a_produccion/build?token=1234"
                 bat "echo Tarea Desplegar en servidor de produccion Iniciada correctamente"
             }
